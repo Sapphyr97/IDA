@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profil{% endblock %}
+
+{% block body %}
+    <div class="p-5">
+
+    
+ <center><div class="row">
+            <div class="col-lg-4">
+                <div class="card mb-4">
+                <div class="card-body text-center">
+                    <img src="assets/images/avatar.png" alt="avatar"
+                    class="rounded-circle img-fluid" style="width: 150px;">
+                    <h5 class="my-3">{{ app.user.nom }}</h5>
+                </div>
+                </div>
+            <div>
+
+            <div class="col-lg-8">
+                <div class="card mb-4">
+                 <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">Nom</p>
+                         </div>
+                        <div class="col-sm-9">
+                            <p class="text-muted mb-0">{{ app.user.nom }}</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                         <div class="col-sm-3">
+                            <p class="mb-0">Prenom</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <p class="text-muted mb-0">{{ app.user.prenom }}</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                             <p class="mb-0">Email</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <p class="text-muted mb-0">{{ app.user.email}}</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">Date de Naissance</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <p class="text-muted mb-0">{{ app.user.datenaissance }}</p>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <p class="mb-0">Telephone</p>
+                        </div>
+                        <div class="col-sm-9">
+                            <p class="text-muted mb-0">{{ app.user.telephone}}</p>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            <div>
+    
+ </div></center>
+
+ </div>
+{% endblock %}

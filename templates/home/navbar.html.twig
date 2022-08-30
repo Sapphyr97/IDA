@@ -1,0 +1,70 @@
+<!-- Fixed navbar -->
+
+	<div class="navbar navbar-inverse navbar-fixed-top headroom" >
+		<div class="container">
+
+   	<div class=
+			"navbar-header">
+                <!-- Button for smallest screens -->
+				<a class="navbar-brand" href="{{path('app_home')}}"><img  class="logo" src="assets/images/logo.jpg" </a>
+	</div>
+	
+   {% if is_granted("ROLE_USER") %}
+        
+
+			<div class="navbar navbar-expand-lg navbar-dark py-lg-4 ">
+				<ul class="nav navbar-nav pull-right">
+					<li class="btn"><a  href="{{path("app_membre")}}">Information</a></li> <br>
+					<li class="btn"><a href="{{path("app_product")}}" >Formations</a></li>
+					<li class="btn"><a href="{{path("app_panier")}}" >Panier</a></li>
+					<li class="btn" ><a href="">Cours</a></li>
+					<li class="btn" ><a href="{{path("app_contact")}}">Contact</a></li>
+					<li style="color:#c1bdba;">
+						<a href="{{path('app_logout')}}">
+							<button type="button" class="btn btn-info btn-lg btn-block">Deconnexion</button>
+						</a>
+				</li>
+				</ul>
+				
+
+			</div>
+
+        {% else %}
+            
+               	<div class="navbar-header">
+                <!-- Button for smallest screens -->
+				<a class="navbar-brand" href="{{path('app_home')}}"><img  class="logo" src="assets/images/logo.jpg" </a>
+			</div>
+
+			<div class="navbar navbar-expand-lg navbar-dark py-lg-4 ">
+				<ul class="nav navbar-nav pull-right">
+					<li class="btn"><a  href="{{path('app_home')}}">Accueil</a></li> <br>
+
+					<li class="btn"><a href="{{path("app_formation")}}" >Formations</a></li>
+					<li class="btn" ><a href="{{path("app_contact")}}">Contact</a></li>
+					<li class="btn" ><a href="{{path("app_register")}}">Inscription</a></li>
+					<li class="btn"><a  href="{{path('app_login')}}">Connexion</a></li>
+				</ul>
+			</div>
+                    
+        {% endif %}
+		<!--/.nav-collapse -->
+
+		</div>
+	</div> 
+	<!-- /.navbar -->
+   {# {% if is_granted("ROLE_USER") %}
+            {% set mainMenu = [
+                {'path': 'main',          'name': 'Home' },
+                {'path': 'all',           'name': 'All' },
+                {'path': 'TEST_test',     'name': 'TEST' },
+                {'path': 'fos_user_profile_show',   'name': 'Profile' },
+                {'path': 'fos_user_security_logout','name': 'logout'}
+            ] %}          
+        {% else %}
+            {% set mainMenu = [
+                {'path': 'main',          'name': 'Home' },
+                {'path': 'fos_user_security_login',         'name': 'Login' },
+                {'path': 'fos_user_registration_register',  'name': 'Register' }
+            ] %}          
+        {% endif %} #}

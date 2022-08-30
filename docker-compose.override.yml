@@ -8,7 +8,15 @@ services:
 ###< doctrine/doctrine-bundle ###
 
 ###> symfony/mailer ###
-  mailer:
-    image: schickling/mailcatcher
-    ports: [1025, 1080]
+ container_name: mailhog
+    restart: always
+    image: mailhog/mailhog:latest
+
+    ports:
+        -'8025:8025'
+        -'1025:1025'
+
+  # mailer:
+  #   image: schickling/mailcatcher
+  #   ports: [1025, 1080]
 ###< symfony/mailer ###

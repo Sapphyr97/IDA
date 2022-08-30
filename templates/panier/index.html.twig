@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PanierController!{% endblock %}
+
+{% block body %}
+<div class="bg-light p-3">
+		<h1>Votre panier</h1>
+	</div>
+	<div class="col-md-12">
+	
+			<table class="table table-striped border">
+				<thead>
+					<tr>
+						<th>Image</th>
+						<th>Produit</th>
+						<th class="text-center">Prix unitaire TTC</th>
+						<th class="text-center">Quantité</th>
+						<th class="text-center">Total</th>
+						<th class="text-center">Actions</th>
+						
+					</tr>
+				</thead>
+				<tbody>
+	 	
+					 {% for item in dataPanier %}
+						<tr>
+							<td class="align-middle"><img class="rounded-circle" width="100" src="{{ item.product.image }}"></td>
+							
+							<td class="align-middle" style="width:40%">
+								<h6>
+									<a href="{{ path('app_product', {'id': item.product.id }) }}">{{ item.product.titre }}</a>
+								</h6>
+								<p>{{ item.product.description | length > 100 ? item.product.description | slice(0,100) ~' (...)' : item.product.description }}</p>
+							</td>
+							
+							<td class="text-center align-middle">{{ item.product.prix | number_format(2, ',', '.') ~ ' €' }}</td>
+							
+							<td class="text-center align-middle">{{ item.quantite }}</td>
+							
+							<td class="text-center align-middle">{% set priceItemTotal = item.product.prix * item.quantite %}
+								{{ priceItemTotal | number_format(2, ',', '.')  ~ ' €' }}
+							</td>{# {# {# {# <td class="text-center align-middle">
+								{% set calcHt = item.product.Prix * tva / 100 %}
+								{% set priceHt = item.product.prix - calcHt %}
+								{{ priceHt | number_format(2, ',', '.') ~ ' €' }}</td> #}
+							
+							
+
+							<td class="text-center align-middle">
+								<a href="{{path("panier_add", {id:item.product.id})}}" class="btn btn-success">
+								<i class="bi bi-cart-plus"></i></a>
+								
+								<a href="{{path('panier_remove', {id:item.product.id})}}" class="btn btn-warning">
+								<i class="bi bi-cart-dash"></i></a>
+
+								<a href="{{path("panier_delete", {id:item.product.id})}}" class="btn btn-danger">
+								<i class="bi bi-cart-x"></i></a>
+							
+							</td>
+						</tr>
+		
+		</tbody>
+	{% else %}
+		<p>Votre panier est vide</p>
+	{% endfor %}
+	
+	<tfoot>
+			<tr>
+			<td colspan="4">Total</td>
+			<td class="text-center">{{ total }}€</td>
+			
+	</tfoot>	
+		
+	</table>
+
+<center><a href ="" class="btn btn-success">Valider le panier</a></center>
+
+
+{% endblock %}

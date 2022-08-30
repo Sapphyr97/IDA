@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ContactController!{% endblock %}
+
+{% block body %}
+<!-- Article main content -->
+			<article class="col-sm-9 maincontent">
+				<header class="page-header">
+					<h1 class="page-title">Contactez Nous</h1>
+				</header>
+				<div class="col-sm-12">
+ 
+    <div class="form-group">
+{{ form_start(form) }}
+    {{ form_row(form.nom, {'attr': {'class': 'form-control'}}) }}
+
+
+</div>
+<div class="form-group">
+    {{ form_row(form.email, {'attr': {'class': 'form-control'}}) }}
+
+</div>
+<div class="form-group">
+    {{ form_row(form.message, {'attr': {'class': 'form-control'}}) }}
+
+</div>
+
+<div class="form-group">
+    <input type="submit" value="Send" class="btn btn-primary py-3 px-5">
+</div>
+{{ form_end(form) }}
+</div>
+				{# <br>
+					<form>
+						<div class="row">
+							<div class="col-sm-4">
+								<input class="form-control" type="text" placeholder="Name">
+							</div>
+							<div class="col-sm-4">
+								<input class="form-control" type="text" placeholder="Email">
+							</div>
+							
+						</div>
+						<br>
+						<div class="row">
+							<div class="col-sm-12">
+								<textarea placeholder="Ecris ton message ici ....." class="form-control" rows="9"></textarea>
+							</div>
+						</div>
+						<br>
+						<div class="row">
+					
+							<div class="col-sm-6 text-right">
+								<input class="btn btn-action" type="submit" value="Envoyez">
+							</div>
+						</div>
+					</form> #}
+
+			</article>
+{% endblock %}
